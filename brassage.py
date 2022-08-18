@@ -1,3 +1,7 @@
+
+
+#Évite d'écrire du code d'exécution normale(indentation de gauche) avant tes définitions de fonction
+#Bonne utilisation de tableaux pour générer ton paquet.
 type=['♦','♣','♥','♠']
 carteNb=['A','2','3','4','5','6','7','8','9','10','J','Q','K']
 carteListe=[]
@@ -10,6 +14,7 @@ def affichage(cartes):
         for j in range(13):
             print(cartes[i*13+j],end="\t")
         print()
+#Dans ce cas-ci, 26 fonctionne mais idéalement trouve la valeur de manière dynamique (len(cartes)//2)
 def brasseCartes(cartes):
     paquet1=cartes[:26]
     paquet2=cartes[26:]
@@ -19,6 +24,7 @@ def brasseCartes(cartes):
         newCarteliste.append(paquet2[i])
     cartes=newCarteliste
     return cartes
+#Bonne approche pour séparer le paquet en 4 lignes. Ici aussi tu pourrais dynamiquement trouvé 13=len(cartes)//4 pour avoir 4 lignes de longueur égale.
 def sauvegard(cartes):
     f=open("cards.txt","w",encoding="utf-8")
     for i in range(4):
@@ -27,6 +33,7 @@ def sauvegard(cartes):
         f.write("\n")
     f.close()
 
+#C'est excellent de mettre ton menu dans une fonction, mais tu devrais aussi y mettre ton while
 def opptions():
     print('Choisissez les options suivantes: ')
     print(
