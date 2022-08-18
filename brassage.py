@@ -44,11 +44,6 @@ while ans!="4" and ans!="3":
     elif ans=="2":
         carteListe = brasseCartes(carteListe)
         ans = opptions()
-
-    elif ans=="3":
-        sauvegard(carteListe)
-        break
-
     else:
         print("Veuillez choisir entre 1 a 4")
         ans = opptions()
