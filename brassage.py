@@ -25,6 +25,7 @@ def sauvegard(cartes):
         for j in range(13):
             f.write(cartes[i*13+j]+"\t")
         f.write("\n")
+    f.close()
 
 def opptions():
     print('Choisissez les options suivantes: ')
