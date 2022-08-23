@@ -5,24 +5,26 @@
 def affichage(cartes):
     for i in range(4):
         for j in range(13):
-            print(cartes[i*13+j],end="\t")
+            print(f"{cartes[i*13+j]:4}",end="")
         print()
 #Dans ce cas-ci, 26 fonctionne mais idéalement trouve la valeur de manière dynamique (len(cartes)//2)
 def brasseCartes(cartes):
-    paquet1=cartes[:len(cartes)//2]
-    paquet2=cartes[len(cartes)//2:]
+    paquetsize=len(cartes)//2
+    paquet1=cartes[:paquetsize]
+    paquet2=cartes[paquetsize//2:]
     newCarteliste=[]
-    for i in range(len(cartes)//2):
-        newCarteliste.append(paquet1[i])
-        newCarteliste.append(paquet2[i])
-    cartes=newCarteliste
-    return cartes
+    #
+    for carte1,carte2 in zip(paquet1,paquet2):
+        newCarteliste.append(carte1)
+        newCarteliste.append(carte2)
+    return newCarteliste
 #Bonne approche pour séparer le paquet en 4 lignes. Ici aussi tu pourrais dynamiquement trouvé 13=len(cartes)//4 pour avoir 4 lignes de longueur égale.
 def sauvegard(cartes):
+    row_size=len(cartes)//4
     f=open("cards.txt","w",encoding="utf-8")
     for i in range(4):
-        for j in range(len(cartes)//4):
-            f.write(cartes[i*13+j]+"\t")
+        for j in range(row_size):
+            f.write(f"{cartes[i*13+j]:4}")
         f.write("\n")
     f.close()
 
