@@ -11,7 +11,7 @@ def affichage(cartes):
 def brasseCartes(cartes):
     paquetsize=len(cartes)//2
     paquet1=cartes[:paquetsize]
-    paquet2=cartes[paquetsize//2:]
+    paquet2=cartes[paquetsize:]
     newCarteliste=[]
     #
     for carte1,carte2 in zip(paquet1,paquet2):
@@ -32,7 +32,8 @@ def sauvegard(cartes):
 def opptions():
     print('Choisissez les options suivantes: ')
     print(
-        "1. l'état du jeu de carte\n2. Effectuer un brassage inter-coupé\n3. Sauvegarder l'état final dans un fichier .txt\n")
+        "1. l'état du jeu de carte\n2. Effectuer un brassage inter-coupé\n\
+            3. Sauvegarder l'état final dans un fichier .txt\n")
     option = input("Choisissez: ")
     return option
 
